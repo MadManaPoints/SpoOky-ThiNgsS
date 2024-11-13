@@ -51,5 +51,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SpoOky ThiNgsS.sln"
+    "dotnet.defaultSolution": "SpoOky-ThiNgsS.sln"
 }
