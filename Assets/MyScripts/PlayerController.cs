@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    PlayerMovement player;
     private float xRotation;
     private float yRotation;
     public float sens = 50f;
@@ -12,14 +13,14 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        player = PlayerMovement.player;
     }
 
     // Update is called once per frame
     private void Update()
     {
         Cursor.lockState = CursorLockMode.Locked; 
-        CameraControls();
+        if(player.playerControl) CameraControls();
     }
 
     private void CameraControls(){

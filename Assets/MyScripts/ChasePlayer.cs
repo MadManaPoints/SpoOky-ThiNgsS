@@ -15,6 +15,7 @@ public class ChasePlayer : MonoBehaviour
     bool chooseCooldown;
     bool playerInSight; 
     bool leaveArea;
+    bool spottedPlayer;
 
     void Start()
     {
@@ -28,10 +29,14 @@ public class ChasePlayer : MonoBehaviour
 
 
     void Update()
-    {
+    {   
         if(!player.spookyForm && playerInSight){
             leaveArea = false;
             chooseCooldown = false;
+            if(!spottedPlayer){
+                player.spotted++;
+                spottedPlayer = true;
+            }
             MoveToPlayer();
         } else if(player.spookyForm){
             MoveAway();
@@ -44,6 +49,11 @@ public class ChasePlayer : MonoBehaviour
             anim.SetBool("Look", true);
         } else {
             anim.SetBool("Look", false);
+        }
+
+        if(spottedPlayer && !playerInSight){
+            player.spotted--;
+            spottedPlayer = false;
         }
 
     }

@@ -14,7 +14,7 @@ public class rotate : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.localRotation = Quaternion.Euler(0, y, 0);
-        y += 0.1f;
+        y += 0.01f;
         
 
     }
